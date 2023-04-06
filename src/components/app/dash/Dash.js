@@ -23,7 +23,7 @@ const Dash = () => {
                 </Row>
             </div>
             <br />
-            <Row>
+            <Row className={"gy-3"}>
                 <Col md={{offset: 1, span: 5}} sm={12}>
                     <SwapsCard />
                 </Col>
