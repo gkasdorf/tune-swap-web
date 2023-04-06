@@ -1,0 +1,31 @@
+.social-icon {
+    padding: .4em;
+}
+
+.footer {
+    padding-top: 2em;
+    padding-left: 2em;
+    background-color: var(--bs-dark);
+}
+
+.footer {
+    color: var(--bs-gray-400)
+}
+
+.footer .row {
+    padding-bottom: 2em;
+}
+
+.footer a {
+    padding: 3px;
+    display: block;
+    color: var(--bs-white);
+}
+
+.footer a:hover {
+    color: var(--bs-gray-400);
+}
+
+.footer a.social {
+    display: inline;
+}

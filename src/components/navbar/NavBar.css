@@ -1,0 +1,15 @@
+.nav-link {
+    color: var(--bs-gray-500);
+}
+
+.nav-link:hover {
+    color: var(--bs-gray-200);
+}
+
+.active {
+    color: var(--bs-gray-200) !important;
+}
+
+.navbar-brand {
+    color: var(--bs-gray-200) !important;
+}

@@ -1,0 +1,13 @@
+.playlistImage {
+    height: 60px;
+    padding-right: 1em;
+}
+
+.playlistItem:hover {
+    cursor: pointer;
+}
+
+.serviceIcon {
+    height: 70px;
+    padding: 5px;
+}

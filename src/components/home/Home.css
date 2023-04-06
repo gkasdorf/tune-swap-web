@@ -1,0 +1,10 @@
+.hero {
+    padding-top: 3em;
+    padding-bottom: 5em;
+}
+
+.howItWorks {
+    padding-top: 3em;
+    padding-bottom: 3em;
+    background-color: var(--bs-gray-100);
+}

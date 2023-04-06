@@ -1,0 +1,17 @@
+$white: #ffffff;
+
+$theme-colors: (
+        "light":      #d5dbe5,
+        "dark":       #094968,
+        "primary":    #6d3982,
+        "secondary":  #4f6ab5,
+        "info":       #f76232,
+        "accent1":    #b5b164,
+        "accent2":    #7f63a5,
+        "accent3":    #aab29c,
+        "success":    #1eb071,
+        "warning":    #e0d01c,
+        "danger":     #ef320d,
+);
+
+@import "~bootstrap/scss/bootstrap";
