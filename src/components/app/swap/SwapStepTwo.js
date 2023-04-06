@@ -1,8 +1,9 @@
 import Visibility from "../../Visibility";
-import {Card, ListGroup, ListGroupItem, Spinner, Table} from "react-bootstrap";
+import {Button, Card, ListGroup, ListGroupItem, Spinner} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import UserApi from "../../../api/UserApi";
 import "./Swap.css";
+import {ChevronLeft} from "react-bootstrap-icons";
 
 const SwapStepTwo = ({visible, fromService, setCurrentStep, setPlaylist}) => {
     const [playlists, setPlaylists] = useState([]);
@@ -23,16 +24,21 @@ const SwapStepTwo = ({visible, fromService, setCurrentStep, setPlaylist}) => {
         getPlaylists();
     }, [visible])
 
-    const click = (playlist) => {
+    const playlistClick = (playlist) => {
         setPlaylist(playlist);
         setCurrentStep("three");
+    }
+
+    const backClick = () => {
+        setCurrentStep("one");
     }
 
     return (
         <Visibility visible={visible}>
             <Card>
                 <Card.Header>
-                    <h3 className={"text-center"}>Select a playlist to swap</h3>
+                    <Button className={"float-start"} size={"sm"} variant={"dark"} onClick={backClick}><ChevronLeft />Back</Button>
+                    <h3 className={"text-center"}>Select a playlist</h3>
                 </Card.Header>
                 <Card.Body>
                     <Visibility visible={loading}>
@@ -44,7 +50,7 @@ const SwapStepTwo = ({visible, fromService, setCurrentStep, setPlaylist}) => {
                         <ListGroup>
                             {playlists.map((playlist) => {
                                 return (
-                                    <ListGroupItem key={playlist.id} className={"playlistItem"} onClick={() => click(playlist)}>
+                                    <ListGroupItem key={playlist.id} className={"playlistItem"} onClick={() => playlistClick(playlist)}>
                                         <img src={playlist.image} className={"playlistImage"} />
                                         <span className={"playlistName"}>
                                             {playlist.name}

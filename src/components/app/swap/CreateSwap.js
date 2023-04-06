@@ -28,7 +28,7 @@ const CreateSwap = () => {
                     <SwapStepOne visible={currentStep === "one"} setCurrentStep={setCurrentStep} setFromService={setFromService} />
                     <SwapStepTwo visible={currentStep === "two"} fromService={fromService} setCurrentStep={setCurrentStep} setPlaylist={setPlaylist} />
                     <SwapStepThree visible={currentStep === "three"} fromService={fromService} setCurrentStep={setCurrentStep} setToService={setToService} />
-                    <SwapStepFour visible={currentStep === "four"} swapParams={{
+                    <SwapStepFour visible={currentStep === "four"} setCurrentStep={setCurrentStep} swapParams={{
                         fromService: fromService,
                         toService: toService,
                         playlist: playlist

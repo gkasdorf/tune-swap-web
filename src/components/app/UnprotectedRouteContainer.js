@@ -1,6 +1,5 @@
 import NavBar from "../navbar/NavBar";
 import Footer from "../footer/Footer";
-import ProtectedRoute from "../../AuthProvider";
 import {Container} from "react-bootstrap";
 import {useEffect} from "react";
 

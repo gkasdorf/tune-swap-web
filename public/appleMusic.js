@@ -26,7 +26,7 @@ const onButtonClick = () => {
         console.log("authorized");
         console.log("token is: " + token);
 
-        window.location.href = "http://192.168.1.2:8000/api/applemusic/auth" + "?apiToken=" + encodeURIComponent(user.apiToken) + "&token=" + encodeURIComponent(token) + "&web=true";
+        window.location.href = "https://api.tuneswap.app/api/applemusic/auth" + "?apiToken=" + encodeURIComponent(user.apiToken) + "&token=" + encodeURIComponent(token) + "&web=true";
     });
 }
 

@@ -6,7 +6,6 @@ import Home from "./components/home/Home";
 import Signin from "./components/signin/Signin";
 import Signup from "./components/signup/Signup";
 import Dash from "./components/app/dash/Dash";
-import ProtectedRoute from "./AuthProvider";
 import CreateSwap from "./components/app/swap/CreateSwap";
 import Swap from "./components/app/swap/Swap";
 import SpotifyAuthCallback from "./components/app/callbacks/SpotifyAuthCallback";

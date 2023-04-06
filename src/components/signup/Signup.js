@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import NavBar from "../navbar/NavBar";
-import {Alert, Button, ButtonGroup, Card, Col, Container, Form, Row} from "react-bootstrap";
+import {Alert, Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import Footer from "../footer/Footer";
 import "./Signup.css";
 import Authentication from "../../api/Authentication";
@@ -66,7 +66,7 @@ const Signup = () => {
 
             await user.store();
 
-            navigate("/app/welcome");
+            navigate("/app");
         }
     }
 

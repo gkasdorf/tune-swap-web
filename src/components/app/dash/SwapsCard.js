@@ -1,4 +1,4 @@
-import {Button, Card, Col, Row, Table} from "react-bootstrap";
+import {Button, Card, Table} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import UserApi from "../../../api/UserApi";

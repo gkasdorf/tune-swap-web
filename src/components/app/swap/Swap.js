@@ -1,15 +1,11 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import UserApi from "../../../api/UserApi";
-import ProtectedRoute from "../../../AuthProvider";
-import NavBar from "../../navbar/NavBar";
-import Footer from "../../footer/Footer";
 import {
     Button,
     ButtonGroup,
     Card,
     Col,
-    Container,
     ListGroup,
     ListGroupItem,
     ProgressBar,
@@ -18,7 +14,6 @@ import {
 } from "react-bootstrap";
 import Visibility from "../../Visibility";
 import MusicServiceIcon from "../../../models/MusicServiceIcon";
-import convertDate from "../../../helpers/convertDate";
 import {ArrowRight} from "react-bootstrap-icons";
 import ProtectedRouteContainer from "../ProtectedRouteContainer";
 
