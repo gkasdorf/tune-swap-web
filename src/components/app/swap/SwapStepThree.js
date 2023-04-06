@@ -1,9 +1,10 @@
 import Visibility from "../../Visibility";
-import {Card, Row} from "react-bootstrap";
+import {Button, Card, Row} from "react-bootstrap";
 import ServiceCard from "../dash/ServiceCard";
 import MusicService from "../../../models/MusicService";
 import UserApi from "../../../api/UserApi";
 import OpenAuth from "./OpenAuth";
+import {ChevronLeft} from "react-bootstrap-icons";
 
 const SwapStepThree = ({visible, fromService, setToService, setCurrentStep}) => {
     const click = async (service) => {
@@ -19,11 +20,16 @@ const SwapStepThree = ({visible, fromService, setToService, setCurrentStep}) => 
         setCurrentStep("four");
     };
 
+    const backClick = () => {
+        setCurrentStep("two");
+    }
+
     return (
         <Visibility visible={visible}>
             <Card>
                 <Card.Header>
-                    <h3 className={"text-center"}>Where are you swapping to?</h3>
+                    <Button className={"float-start"} size={"sm"} variant={"dark"} onClick={backClick}><ChevronLeft />Back</Button>
+                    <h3 className={"text-center"}>Where to?</h3>
                 </Card.Header>
                 <Card.Body>
                     <Row className={"gy-3"}>

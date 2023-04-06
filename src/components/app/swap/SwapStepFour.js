@@ -3,8 +3,9 @@ import {Button, Card, FormCheck, FormControl, ListGroup, ListGroupItem, Spinner}
 import {useEffect, useState} from "react";
 import UserApi from "../../../api/UserApi";
 import {useNavigate} from "react-router-dom";
+import {ChevronLeft} from "react-bootstrap-icons";
 
-const SwapStepFour = ({visible, swapParams}) => {
+const SwapStepFour = ({setCurrentStep, visible, swapParams}) => {
     const [playlistName, setPlaylistName] = useState("");
     const [isPrivate, setIsPrivate] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
@@ -32,10 +33,15 @@ const SwapStepFour = ({visible, swapParams}) => {
         navigate("/app/swap/" + newSwap.data.data.swapId);
     }
 
+    const backClick = () => {
+        setCurrentStep("three");
+    }
+
     return (
         <Visibility visible={visible}>
             <Card>
                 <Card.Header>
+                    <Button className={"float-start"} size={"sm"} variant={"dark"} onClick={backClick}><ChevronLeft />Back</Button>
                     <h3 className={"text-center"}>Summary</h3>
                 </Card.Header>
                 <Card.Body>
