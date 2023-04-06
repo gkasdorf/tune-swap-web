@@ -1,15 +1,9 @@
-import ProtectedRoute from "../../../AuthProvider";
-import NavBar from "../../navbar/NavBar";
-import Footer from "../../footer/Footer";
 import {Button, Card, Col, Container, Nav, Row} from "react-bootstrap";
 import SwapsCard from "./SwapsCard";
-import User from "../../../models/User";
 import "./Dash.css";
 import SyncsCard from "./SyncsCard";
 import {Link} from "react-router-dom";
 import ProtectedRouteContainer from "../ProtectedRouteContainer";
-
-const user = User.load();
 
 const Dash = () => {
 

@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import "bootstrap";
 import "./NavBar.css";
-import {Button, Container, Nav, Navbar, NavDropdown, NavLink} from "react-bootstrap";
-import {Link, useNavigate} from "react-router-dom";
+import {Button, Container, Nav, Navbar} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 import {LinkContainer} from 'react-router-bootstrap';
 import User from "../../models/User";
 

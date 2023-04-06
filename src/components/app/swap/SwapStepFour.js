@@ -1,8 +1,6 @@
 import Visibility from "../../Visibility";
 import {Button, Card, FormCheck, FormControl, ListGroup, ListGroupItem, Spinner} from "react-bootstrap";
-import {List} from "react-bootstrap-icons";
 import {useEffect, useState} from "react";
-import FormCheckInput from "react-bootstrap/FormCheckInput";
 import UserApi from "../../../api/UserApi";
 import {useNavigate} from "react-router-dom";
 

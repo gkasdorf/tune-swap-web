@@ -2,8 +2,6 @@ import {Card, Row} from "react-bootstrap";
 import Visibility from "../../Visibility";
 import MusicService from "../../../models/MusicService";
 import ServiceCard from "../dash/ServiceCard";
-import User from "../../../models/User";
-import Spotify from "../../../api/app/Spotify";
 import UserApi from "../../../api/UserApi";
 import OpenAuth from "./OpenAuth";
 

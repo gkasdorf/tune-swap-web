@@ -1,5 +1,5 @@
 import Visibility from "../../Visibility";
-import {Card, ListGroup, ListGroupItem, Spinner, Table} from "react-bootstrap";
+import {Card, ListGroup, ListGroupItem, Spinner} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import UserApi from "../../../api/UserApi";
 import "./Swap.css";

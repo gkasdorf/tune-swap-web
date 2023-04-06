@@ -1,11 +1,8 @@
 import {useEffect, useState} from "react";
-import ProtectedRoute from "../../../AuthProvider";
-import NavBar from "../../navbar/NavBar";
 import {Button, Card, Col, Container, Row, Spinner} from "react-bootstrap";
 import Visibility from "../../Visibility";
 import ProtectedRouteContainer from "../ProtectedRouteContainer";
 import Spotify from "../../../api/app/Spotify";
-import spotify from "../../../api/app/Spotify";
 
 const SpotifyAuthCallback = () => {
     const queryParams = new URLSearchParams(window.location.search);

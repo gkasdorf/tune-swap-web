@@ -2,7 +2,6 @@ import Visibility from "../../Visibility";
 import {Card, Row} from "react-bootstrap";
 import ServiceCard from "../dash/ServiceCard";
 import MusicService from "../../../models/MusicService";
-import MusicServiceIcon from "../../../models/MusicServiceIcon";
 import UserApi from "../../../api/UserApi";
 import OpenAuth from "./OpenAuth";
 
