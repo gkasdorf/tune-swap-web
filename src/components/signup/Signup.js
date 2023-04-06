@@ -66,7 +66,7 @@ const Signup = () => {
 
             await user.store();
 
-            navigate("/app/welcome");
+            navigate("/app");
         }
     }
 
