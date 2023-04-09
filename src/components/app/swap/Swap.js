@@ -57,6 +57,14 @@ const Swap = () => {
         getSwap();
     }, [swapId]);
 
+    useEffect(() => {
+        return() => {
+            if(interval !== null) {
+                clearInterval(interval);
+            }
+        }
+    }, []);
+
     return (
         <ProtectedRouteContainer>
             <Row>
