@@ -2,6 +2,7 @@ import Api from "./Api";
 import MusicService from "../models/MusicService";
 import Spotify from "./app/Spotify";
 import AppleMusic from "./app/AppleMusic";
+import Tidal from "./app/Tidal";
 
 class UserApi {
     /**
@@ -44,6 +45,9 @@ class UserApi {
             }
             case MusicService.AppleMusic: {
                 return AppleMusic.getUserPlaylists();
+            }
+            case MusicService.Tidal: {
+                return Tidal.getUserPlaylists();
             }
         }
     }
