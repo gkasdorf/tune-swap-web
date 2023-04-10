@@ -2,6 +2,7 @@ import Api from "./Api";
 import MusicService from "../models/MusicService";
 import Spotify from "./app/Spotify";
 import AppleMusic from "./app/AppleMusic";
+import Tidal from "./app/Tidal";
 
 class UserApi {
     /**
@@ -9,7 +10,7 @@ class UserApi {
      * @param limit {number}
      * @param offset {number}
      */
-    static getSwaps(limit, offset = 0) {
+    static getSwaps = (limit, offset = 0) => {
         const api = new Api("/swap");
 
         const data = {
@@ -20,7 +21,7 @@ class UserApi {
         return api.get(data);
     }
 
-    static getSwap(id) {
+    static getSwap = (id) => {
         const api = new Api("/swap/" + id);
 
         return api.get();
@@ -31,13 +32,13 @@ class UserApi {
      * @param data {fromService: string, toService: string, playlistId: string, playlistName: string}
      * @returns {Promise<{success: boolean}|{data: *, success: boolean, status: number}>}
      */
-    static createSwap(data) {
+    static createSwap = (data) => {
         const api = new Api("/swap/start");
 
         return api.post(data);
     }
 
-    static getUserPlaylists(service) {
+    static getUserPlaylists = (service) => {
         switch(service) {
             case MusicService.Spotify: {
                 return Spotify.getUserPlaylists();
@@ -45,10 +46,13 @@ class UserApi {
             case MusicService.AppleMusic: {
                 return AppleMusic.getUserPlaylists();
             }
+            case MusicService.Tidal: {
+                return Tidal.getUserPlaylists();
+            }
         }
     }
 
-    static hasService(service) {
+    static hasService = async (service) => {
         let api;
 
         switch(service) {
@@ -60,9 +64,15 @@ class UserApi {
                 api = new Api("/user/has/applemusic");
                 break;
             }
+            case MusicService.Tidal: {
+                api = new Api("/user/has/tidal");
+                break;
+            }
         }
 
-        return api.get();
+        const res = await api.get();
+
+        return res.data.has;
     }
 }
 
