@@ -8,6 +8,9 @@ const MusicServiceIcon = (service) => {
         case MusicService.AppleMusic: {
             return "/AppleMusicIcon.svg";
         }
+        case MusicService.Tidal: {
+            return "/TidalIcon.png"
+        }
         default: {
             return "/PlaceholderIcon.svg";
         }
