@@ -1,6 +1,6 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
-import {Twitter, Mastodon, Reddit, Github} from "react-bootstrap-icons";
+import {Twitter, Mastodon, Reddit, Github, Discord} from "react-bootstrap-icons";
 import "./Footer.css";
 import {Link} from "react-router-dom";
 
@@ -16,6 +16,7 @@ const Footer = () => {
                     </Col>
                     <Col md={4}>
                         <div className={"text-md-end text-sm-center"}>
+                            <a href={"https://discord.gg/7AJNgwk7vQ"} className={"social"}><span className={"social-icon"}><Discord size={30}/></span></a>
                             <a href={"https://twitter.com/TuneSwapApp"} className={"social"}><span className={"social-icon"}><Twitter size={30} /></span></a>
                             <a href={"https://reddit.com/u/gk907"} className={"social"}><span className={"social-icon"}><Reddit size={30} /></span></a>
                             <a href={"https://mastodon.social/@TuneSwap"} className={"social"}><span className={"social-icon"}><Mastodon size={30} /></span></a>
