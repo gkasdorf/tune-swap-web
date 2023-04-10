@@ -4,31 +4,61 @@ import {useEffect, useState} from "react";
 import UserApi from "../../../api/UserApi";
 import "./Swap.css";
 import {ChevronLeft} from "react-bootstrap-icons";
+import MusicService from "../../../models/MusicService";
 
 const SwapStepTwo = ({visible, fromService, setCurrentStep, setPlaylist}) => {
     const [playlists, setPlaylists] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    /**
+     * Get the playlists to render
+     * @returns {Promise<void>}
+     */
     const getPlaylists = async () => {
+        // Show loading
         setLoading(true);
 
-        const res = await UserApi.getUserPlaylists(fromService);
-        setPlaylists(res);
+        // Get the user playlists
+        const resPlaylists = await UserApi.getUserPlaylists(fromService);
+
+        // Add the library option
+        resPlaylists.unshift({
+            id: "library",
+            name: "Your Library",
+            image: (() => {
+                switch(fromService) {
+                    case MusicService.Spotify: {
+                        return "/SpotifyIcon.svg";
+                    }
+                    case MusicService.AppleMusic: {
+                        return "/AppleMusicIcon.svg";
+                    }
+                    case MusicService.Tidal: {
+                        return "/TidalIcon.png";
+                    }
+                }
+            })()
+        });
+
+        setPlaylists(resPlaylists);
 
         setLoading(false);
     }
 
     useEffect(() => {
+        // If the component is rendered, get the playlists.
         if(!visible) return;
 
         getPlaylists();
     }, [visible])
 
+    // Process the selection
     const playlistClick = (playlist) => {
         setPlaylist(playlist);
         setCurrentStep("three");
     }
 
+    // Send the user back to the last screen
     const backClick = () => {
         setCurrentStep("one");
     }

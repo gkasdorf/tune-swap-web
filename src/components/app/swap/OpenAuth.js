@@ -1,7 +1,7 @@
 import MusicService from "../../../models/MusicService";
 import Spotify from "../../../api/app/Spotify";
 
-const OpenAuth = async (service) => {
+const OpenAuth = async (service, setShowTidalModal) => {
     if(service === MusicService.Spotify) {
         const spotifyUrlRes = await Spotify.getAuthUrl();
 
@@ -9,6 +9,8 @@ const OpenAuth = async (service) => {
         setTimeout(() => { window.open(spotifyUrlRes.data.url) });
     } else if(service === MusicService.AppleMusic) {
         setTimeout(() => { window.open("/app/applemusic/auth")});
+    } else if(service === MusicService.Tidal) {
+        setShowTidalModal(true);
     }
 }
 
