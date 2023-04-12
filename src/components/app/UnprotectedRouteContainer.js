@@ -10,7 +10,7 @@ import {useEffect} from "react";
  * @returns {JSX.Element}
  * @constructor
  */
-const ProtectedRouteContainer = ({fluid = true, children}) => {
+const UnprotectedRouteContainer = ({fluid = true, children}) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -28,4 +28,4 @@ const ProtectedRouteContainer = ({fluid = true, children}) => {
     )
 };
 
-export default ProtectedRouteContainer;
+export default UnprotectedRouteContainer;
