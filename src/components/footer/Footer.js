@@ -3,6 +3,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import {Twitter, Mastodon, Reddit, Github, Discord} from "react-bootstrap-icons";
 import "./Footer.css";
 import {Link} from "react-router-dom";
+import {CookieConsent} from "react-cookie-consent";
 
 const Footer = () => {
     return (
@@ -66,6 +67,17 @@ const Footer = () => {
                     </Col>
                 </Row>
             </Container>
+            <CookieConsent
+                location={"bottom"}
+                buttonText={"Accept"}
+                cookieName={"acceptCookies"}
+                style={{background: "#2B373B" }}
+                buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+                expires={150}
+            >
+                TuneSwap uses cookies to enhance the user experience. By continuing to use TuneSwap you are agreeing that
+                you allow us to use cookies for this purpose.
+            </CookieConsent>
         </div>
     );
 }
