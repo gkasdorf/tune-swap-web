@@ -29,7 +29,7 @@ const Footer = () => {
                         <div className={"text-start align-items-start"}>
                             <h3>TuneSwap</h3>
                             <Link to={"https://apps.apple.com/us/app/tuneswap/id6447500724"}><img src={"/DownloadOnAppStore.svg"} alt={"Download on the App Store"} /></Link>
-                            {/*<img style={{height: "60px" }} src={"/GooglePlayBadge.png"} alt={"Get it on Google Play"} />*/}
+                            <Link to={"https://www.buymeacoffee.com/gavink"} target={"_blank"}><img src="/bmc.png" alt="Buy Me A Coffee" style={{width: "10em"}}/></Link>
                         </div>
                     </Col>
                     <Col md={3} sm={12}>
