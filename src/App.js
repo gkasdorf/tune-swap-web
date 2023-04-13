@@ -13,6 +13,7 @@ import AppleMusicAuth from "./components/app/appleMusic/AppleMusicAuth";
 import Privacy from "./components/policies/Privacy";
 import Terms from "./components/policies/Terms";
 import Features from "./components/home/Features";
+import Swaps from "./components/app/swap/Swaps";
 
 function App() {
     return (
@@ -33,7 +34,7 @@ function App() {
                 <Route path={"dash"} element={<Dash />} />
                 <Route path={"swap"} element={<CreateSwap />} />
                 <Route path={"swap/:swapId"} element={<Swap />} />
-
+                <Route path={"swaps"} element={<Swaps />} />
                 <Route path={"applemusic/auth"} element={<AppleMusicAuth />} />
             </Route>
         </Routes>

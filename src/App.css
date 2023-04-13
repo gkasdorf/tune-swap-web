@@ -16,6 +16,8 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
 }
 
 .bold {

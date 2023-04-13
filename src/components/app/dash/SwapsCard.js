@@ -8,6 +8,7 @@ import "./Card.css";
 const SwapsCard = ({user}) => {
     const [swapsLoading, setSwapsLoading] = useState(true);
     const [swaps, setSwaps] = useState([]);
+    const [currentOffset, setCurrentOffset] = useState(0);
 
     const getSwaps = async () => {
         const res = await UserApi.getSwaps(5);
@@ -22,7 +23,7 @@ const SwapsCard = ({user}) => {
     return (
         <Card>
             <Card.Header>
-                <h3 className={"text-center"}>Your Swaps <Button className={"float-end"} size={"sm"}>View All</Button></h3>
+                <h3 className={"text-center"}>Your Swaps <Link to={"/app/swaps"}><Button className={"float-end"} size={"sm"}>View All</Button></Link></h3>
             </Card.Header>
             <Card.Body>
                 {swapsLoading &&
