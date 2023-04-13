@@ -1,6 +1,6 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
-import {Twitter, Mastodon, Reddit, Github} from "react-bootstrap-icons";
+import {Twitter, Mastodon, Reddit, Github, Discord} from "react-bootstrap-icons";
 import "./Footer.css";
 import {Link} from "react-router-dom";
 
@@ -16,6 +16,7 @@ const Footer = () => {
                     </Col>
                     <Col md={4}>
                         <div className={"text-md-end text-sm-center"}>
+                            <a href={"https://discord.gg/7AJNgwk7vQ"} className={"social"}><span className={"social-icon"}><Discord size={30}/></span></a>
                             <a href={"https://twitter.com/TuneSwapApp"} className={"social"}><span className={"social-icon"}><Twitter size={30} /></span></a>
                             <a href={"https://reddit.com/u/gk907"} className={"social"}><span className={"social-icon"}><Reddit size={30} /></span></a>
                             <a href={"https://mastodon.social/@TuneSwap"} className={"social"}><span className={"social-icon"}><Mastodon size={30} /></span></a>
@@ -27,8 +28,8 @@ const Footer = () => {
                     <Col md={3} sm={12}>
                         <div className={"text-start align-items-start"}>
                             <h3>TuneSwap</h3>
-                            <img src={"/DownloadOnAppStore.svg"} alt={"Download on the App Store"} />
-                            <img style={{height: "60px" }} src={"/GooglePlayBadge.png"} alt={"Get it on Google Play"} />
+                            <Link to={"https://apps.apple.com/us/app/tuneswap/id6447500724"}><img src={"/DownloadOnAppStore.svg"} alt={"Download on the App Store"} /></Link>
+                            <Link to={"https://www.buymeacoffee.com/gavink"} target={"_blank"}><img src="/bmc.png" alt="Buy Me A Coffee" style={{width: "10em"}}/></Link>
                         </div>
                     </Col>
                     <Col md={3} sm={12}>

@@ -23,13 +23,17 @@ const Swap = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [swapProgress, setSwapProgress] = useState(100);
 
+    let doShowNotification = false;
     let interval = null;
 
     const getSwap = async () => {
+        // Get the swap from the API
         const res = await UserApi.getSwap(swapId);
 
+        // Set the state
         setSwap(res.data.data.swap);
 
+        // If the swap is in progress, we will display the status information
         if(res.data.data.swap.status === "Finding Music") {
             const found = res.data.data.swap.songs_found;
             const notFound = res.data.data.swap.songs_not_found;
@@ -40,30 +44,57 @@ const Swap = () => {
             setSwapProgress(percentage);
         }
 
+        // Set an interval if the swap is not yet completed or errored
         if(res.data.data.swap.status !== "Completed" &&
             res.data.data.swap.status !== "Error" &&
             interval === null) {
 
+            // Request notification permission
+            Notification.requestPermission().then((res) => {
+                console.log("Trying for permission...");
+                console.log(res);
+                // Enable notifications if granted.
+                if(res === "granted") {
+                    console.log("Notifications granted.");
+                    doShowNotification = true;
+                }
+            });
+
             interval = setInterval(getSwap, 5000);
-        } else if(interval !== null &&
+        } else if(interval !== null && // Clear the interval once we are finished
             (res.data.data.swap.status === "Completed" || res.data.data.swap.status === "Error")) {
             clearInterval(interval);
+            showNotification();
         }
 
+        // Hide the loading modal
         setIsLoading(false);
     }
 
+    // Get the swap
     useEffect(() => {
         getSwap();
     }, [swapId]);
 
     useEffect(() => {
+        if(("Notification" in window)) {
+            Notification.requestPermission();
+        }
+
+        // Whenever we navigate away, clear the interval
         return() => {
             if(interval !== null) {
                 clearInterval(interval);
             }
         }
     }, []);
+
+    const showNotification = () => {
+        if(doShowNotification) {
+            new Notification("Great news! " + swap.playlist_name + " has finished transferring to " + swap.to_service + "." +
+                " Go ahead, check it out!");
+        }
+    }
 
     return (
         <ProtectedRouteContainer>
