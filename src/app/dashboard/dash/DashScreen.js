@@ -5,6 +5,7 @@ import Dialog from "../../ui/dialog/Dialog";
 import DialogTitle from "../../ui/dialog/DialogTitle";
 import Button from "../../ui/button/Button";
 import SwapApi from "../../../api/swap/SwapApi";
+import {Link} from "react-router-dom";
 
 const DashScreen = () => {
     const [swaps, setSwaps] = useState([]);
@@ -78,7 +79,7 @@ const DashScreen = () => {
                                                                         {swap.status}
                                                                     </td>
                                                                     <td className="px-2 py-2 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
-                                                                        <Button className={"float-right"}>View</Button>
+                                                                        <Link to={`/app/swap/${swap.id}`}><Button className={"float-right"}>View</Button></Link>
                                                                     </td>
                                                                 </tr>
                                                             ))}

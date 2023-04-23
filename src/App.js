@@ -11,6 +11,7 @@ import SwapStepOneScreen from "./app/dashboard/swap/SwapStepOneScreen";
 import SwapStepTwoScreen from "./app/dashboard/swap/SwapStepTwoScreen";
 import SwapStepThreeScreen from "./app/dashboard/swap/SwapStepThreeScreen";
 import SwapStepFourScreen from "./app/dashboard/swap/SwapStepFourScreen";
+import SwapStatusScreen from "./app/dashboard/swap/SwapStatusScreen";
 
 function App() {
     return (
@@ -27,6 +28,8 @@ function App() {
             <Route path={"/app/swap/step-two"} element={<SwapStepTwoScreen/>}/>
             <Route path={"/app/swap/step-three"} element={<SwapStepThreeScreen/>}/>
             <Route path={"/app/swap/step-four"} element={<SwapStepFourScreen/>}/>
+
+            <Route path={"/app/swap/:swapId"} element={<SwapStatusScreen />}/>
         </Routes>
     );
 }
