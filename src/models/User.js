@@ -22,7 +22,7 @@ class User {
      */
     getName = () => {
         return this.name;
-    }
+    };
 
     /**
      * Get the user's email
@@ -30,7 +30,7 @@ class User {
      */
     getEmail = () => {
         return this.email;
-    }
+    };
 
     /**
      * Get the user's API token
@@ -38,7 +38,7 @@ class User {
      */
     getApiToken = () => {
         return this.apiToken;
-    }
+    };
 
     /**
      * Check if a user has a music service
@@ -53,7 +53,7 @@ class User {
         if(service === MusicService.Spotify) {
             return this.spotify;
         }
-    }
+    };
 
     /**
      * Get the user's spotify email
@@ -61,7 +61,7 @@ class User {
      */
     getSpotifyEmail = () => {
         return this.spotifyEmail;
-    }
+    };
 
     /**
      * Stores the user in localStorage
@@ -69,7 +69,7 @@ class User {
      */
     store = async () => {
         await localStorage.setItem("user", JSON.stringify(this));
-    }
+    };
 
     /**
      * Loads a user from local storage
@@ -81,7 +81,7 @@ class User {
         if(!lsItem) return null;
 
         return new User(JSON.parse(lsItem));
-    }
+    };
 
     /**
      * Clears the user from local storage
@@ -89,11 +89,11 @@ class User {
      */
     static clear = async () => {
         await localStorage.setItem("user", null);
-    }
+    };
 
     static isSet = () => {
         return localStorage.getItem("user") !== null && localStorage.getItem("user") !== "null";
-    }
+    };
 }
 
 export default User;

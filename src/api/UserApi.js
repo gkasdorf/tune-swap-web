@@ -1,8 +1,8 @@
 import Api from "./Api";
 import MusicService from "../models/MusicService";
-import Spotify from "./app/Spotify";
-import AppleMusic from "./app/AppleMusic";
-import Tidal from "./app/Tidal";
+import SpotifyApi from "./app/SpotifyApi";
+import AppleMusicApi from "./app/AppleMusicApi";
+import TidalApi from "./app/TidalApi";
 
 class UserApi {
     /**
@@ -41,13 +41,13 @@ class UserApi {
     static getUserPlaylists = (service) => {
         switch(service) {
             case MusicService.Spotify: {
-                return Spotify.getUserPlaylists();
+                return SpotifyApi.getUserPlaylists();
             }
             case MusicService.AppleMusic: {
-                return AppleMusic.getUserPlaylists();
+                return AppleMusicApi.getUserPlaylists();
             }
             case MusicService.Tidal: {
-                return Tidal.getUserPlaylists();
+                return TidalApi.getUserPlaylists();
             }
         }
     }
