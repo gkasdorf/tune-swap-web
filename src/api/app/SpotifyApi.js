@@ -2,7 +2,7 @@ import Api from "../Api";
 
 class SpotifyApi {
     static getAuthUrl = () => {
-        const api = new Api("/spotify/authUrl");
+        const api = new Api("/v2/spotify/authUrl");
 
         const url = process.env.REACT_APP_SPOTIFY_REDIRECT_URL;
 
@@ -11,10 +11,10 @@ class SpotifyApi {
         };
 
         return api.get(data);
-    }
+    };
 
     static doAuth = (code) => {
-        const api = new Api("/spotify/auth");
+        const api = new Api("/v2/spotify/auth");
         const redirectUrl = process.env.REACT_APP_SPOTIFY_REDIRECT_URL;
 
         const data = {
@@ -23,13 +23,13 @@ class SpotifyApi {
         };
 
         return api.get(data);
-    }
+    };
 
     static getUserPlaylists = () => {
         const api = new Api("/v2/spotify/me/playlists");
 
         return api.get();
-    }
+    };
 }
 
 export default SpotifyApi;

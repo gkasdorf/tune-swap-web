@@ -23,6 +23,7 @@ export const signup = createAsyncThunk(
 export const login = createAsyncThunk(
     "auth/login",
     async (data, thunkAPI) => {
+        console.log("here");
         const res = await LoginApi.login(data.email, data.password);
 
         console.log(res);

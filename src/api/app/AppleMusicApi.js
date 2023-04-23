@@ -5,7 +5,7 @@ class AppleMusicApi {
         const api = new Api("/v2/applemusic/me/playlists");
 
         return api.get();
-    }
+    };
 }
 
 export default AppleMusicApi;

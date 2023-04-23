@@ -1,14 +1,13 @@
+import React from "react";
 import PropTypes from "prop-types";
 import {useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 
 const UnprotectedRoute = ({ redirect = false, children }) => {
     const { isAuthed } = useSelector(state => state.user);
-    const navigate = useNavigate();
 
     if(isAuthed && redirect) {
-        navigate("/app");
-        return;
+        return <Navigate to={"/app"} />;
     }
 
     return children;

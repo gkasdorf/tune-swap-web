@@ -9,6 +9,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {signup} from "../../slices/actions/authActions";
 import {clearAuth} from "../../slices/authSlice";
+import UnprotectedRoute from "../wrappers/UnprotectedRoute";
 
 const SignupScreen = () => {
     const [name, setName] = useState("");
@@ -72,63 +73,65 @@ const SignupScreen = () => {
     };
 
     return (
-        <MainWrapper>
-            <div className={"bg-gray-100"}>
-                <div className={"mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8"}>
-                    <div className={"flex flex-col items-center"}>
-                        <div className={"w-full max-w-2xl"}>
-                            <div className={"bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2"}>
-                                <div className={"mb-4"}>
-                                    <h1 className={"text-2xl"}>Create an account</h1>
-                                </div>
-                                <hr />
-                                <Alert variant={"warning"} visible={alertVisible}>
-                                    {alertText}
-                                </Alert>
-                                <form onSubmit={onFormSubmit}>
-                                    <div className={"flex flex-wrap"}>
-                                        <div className={"w-full md:w-1/2 md:pr-1.5"}>
-                                            <InputWrapper>
-                                                <Input type={"text"} label={"Name"} placeholder={"Enter your name"} onChange={(e) => setName(e.target.value)}/>
-                                            </InputWrapper>
-                                        </div>
-                                        <div className={"w-full md:w-1/2 md:pl-1.5"}>
-                                            <InputWrapper>
-                                                <Input type={"email"} label={"Email"} placeholder={"Enter your email"} onChange={(e) => setEmail(e.target.value)}/>
-                                            </InputWrapper>
-                                        </div>
+        <UnprotectedRoute redirect={true}>
+            <MainWrapper>
+                <div className={"bg-gray-100"}>
+                    <div className={"mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8"}>
+                        <div className={"flex flex-col items-center"}>
+                            <div className={"w-full max-w-2xl"}>
+                                <div className={"bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2"}>
+                                    <div className={"mb-4"}>
+                                        <h1 className={"text-2xl"}>Create an account</h1>
                                     </div>
-                                    <div className={"flex flex-wrap"}>
-                                        <div className={"w-full md:w-1/2 md:pr-1.5"}>
-                                            <InputWrapper>
-                                                <Input type={"password"} label={"Password"} placeholder={"Enter your password"} onChange={(e) => setPassword(e.target.value)}/>
-                                            </InputWrapper>
-                                        </div>
-                                        <div className={"w-full md:w-1/2 md:pl-1.5"}>
-                                            <InputWrapper>
-                                                <Input type={"password"} label={"Confirm Password"} placeholder={"Confirm your password"} onChange={(e) => setPasswordAgain(e.target.value)}/>
-                                            </InputWrapper>
-                                        </div>
-                                    </div>
-                                    <div className={"pt-3 pb-6"}>
-                                        <div className={"flex items-center justify-between"}>
-                                            <div className={"flex items-center text-sm"}>
-                                                <Link to={"/login"} className={"font-medium text-indigo-600 hover:text-indigo-500"}>
-                                                    Have an account?
-                                                </Link>
+                                    <hr />
+                                    <Alert variant={"warning"} visible={alertVisible}>
+                                        {alertText}
+                                    </Alert>
+                                    <form onSubmit={onFormSubmit}>
+                                        <div className={"flex flex-wrap"}>
+                                            <div className={"w-full md:w-1/2 md:pr-1.5"}>
+                                                <InputWrapper>
+                                                    <Input type={"text"} label={"Name"} placeholder={"Enter your name"} onChange={(e) => setName(e.target.value)}/>
+                                                </InputWrapper>
+                                            </div>
+                                            <div className={"w-full md:w-1/2 md:pl-1.5"}>
+                                                <InputWrapper>
+                                                    <Input type={"email"} label={"Email"} placeholder={"Enter your email"} onChange={(e) => setEmail(e.target.value)}/>
+                                                </InputWrapper>
                                             </div>
                                         </div>
-                                        <div className={"mt-6"}>
-                                            <Button type={"submit"} variant={"primary"} className={"w-full"} disabled={loading}>Sign Up</Button>
+                                        <div className={"flex flex-wrap"}>
+                                            <div className={"w-full md:w-1/2 md:pr-1.5"}>
+                                                <InputWrapper>
+                                                    <Input type={"password"} label={"Password"} placeholder={"Enter your password"} onChange={(e) => setPassword(e.target.value)}/>
+                                                </InputWrapper>
+                                            </div>
+                                            <div className={"w-full md:w-1/2 md:pl-1.5"}>
+                                                <InputWrapper>
+                                                    <Input type={"password"} label={"Confirm Password"} placeholder={"Confirm your password"} onChange={(e) => setPasswordAgain(e.target.value)}/>
+                                                </InputWrapper>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                        <div className={"pt-3 pb-6"}>
+                                            <div className={"flex items-center justify-between"}>
+                                                <div className={"flex items-center text-sm"}>
+                                                    <Link to={"/login"} className={"font-medium text-indigo-600 hover:text-indigo-500"}>
+                                                        Have an account?
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                            <div className={"mt-6"}>
+                                                <Button type={"submit"} variant={"primary"} className={"w-full"} disabled={loading}>Sign Up</Button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </MainWrapper>
+            </MainWrapper>
+        </UnprotectedRoute>
     );
 };
 

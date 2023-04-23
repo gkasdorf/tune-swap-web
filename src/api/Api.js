@@ -5,6 +5,7 @@ import ApiResponse from "./ApiResponse";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 class Api {
+
     /**
      * Creates an API instance
      * @param url {string}
@@ -39,6 +40,10 @@ class Api {
     post = async(data) => {
         try {
             const resp = await axios.post(this.url, data, this.options);
+
+            if(resp.status === 401) {
+                return;
+            }
 
             return new ApiResponse({
                 success: true,
@@ -75,6 +80,10 @@ class Api {
 
         try {
             const resp = await axios.get(url, this.options);
+
+            if(resp.status === 401) {
+                return;
+            }
 
             return new ApiResponse({
                 success: true,

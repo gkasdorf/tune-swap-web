@@ -5,7 +5,7 @@ class TidalApi {
         const api = new Api("/v2/tidal/authUrl");
 
         return api.get();
-    }
+    };
 
     static auth = (code, codeVerifier) => {
         const api = new Api("/v2/tidal/auth");
@@ -14,13 +14,13 @@ class TidalApi {
             code,
             codeVerifier
         });
-    }
+    };
 
     static getUserPlaylists = () => {
         const api = new Api("/v2/tidal/me/playlists");
 
         return api.get();
-    }
+    };
 }
 
 export default TidalApi;

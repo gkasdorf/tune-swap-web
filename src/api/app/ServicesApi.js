@@ -11,14 +11,14 @@ class ServicesApi {
      */
     static getUserPlaylists = async (service) => {
         switch(service) {
-            case MusicService.Spotify:
-                return SpotifyApi.getUserPlaylists();
-            case MusicService.AppleMusic:
-                return AppleMusicApi.getUserPlaylists();
-            case MusicService.Tidal:
-                return TidalApi.getUserPlaylists();
+        case MusicService.Spotify:
+            return SpotifyApi.getUserPlaylists();
+        case MusicService.AppleMusic:
+            return AppleMusicApi.getUserPlaylists();
+        case MusicService.Tidal:
+            return TidalApi.getUserPlaylists();
         }
-    }
+    };
 }
 
 export default ServicesApi;

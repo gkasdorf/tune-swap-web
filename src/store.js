@@ -5,10 +5,12 @@ import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 import {persistStore} from "redux-persist";
 import thunk from "redux-thunk";
+import swapSlice from "./slices/swapSlice";
 
 const rootReducer = combineReducers({
     auth: authSlice,
-    user: userSlice
+    user: userSlice,
+    swap: swapSlice,
 });
 
 const persistConfig = {

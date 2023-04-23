@@ -89,11 +89,7 @@ const Button = (
 
     return (
         <button
-            // className={`py-2 px-4 rounded-md text-sm focus:outline-none
-            // ${color()} ${className} ${disabled ? "bg-gray-500 hover:cursor-default" : ""}
-            // ${outline ? `bg-white text-black border-2` : ""}`}
-
-            className={`py-2 px-4 rounded-md text-sm focus:outline-none
+            className={`py-2 px-4 rounded-md text-md focus:outline-none
             ${background()} ${textColor()} ${className} ${disabled ? "bg-gray-500 hover:cursor-default" : ""} ${hover()}`}
             {...props}
             onClick={handleClick}
