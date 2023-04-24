@@ -21,7 +21,7 @@ const DashScreen = () => {
     const getData = async() => {
         const swapsRes = await SwapApi.getAll();
 
-        setSwaps(swapsRes.data.swaps);
+        setSwaps(swapsRes.data.swaps ?? []);
         setSyncs([]);
         setDataLoading(false);
     };

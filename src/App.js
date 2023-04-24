@@ -13,6 +13,7 @@ import SwapStepThreeScreen from "./app/dashboard/swap/SwapStepThreeScreen";
 import SwapStepFourScreen from "./app/dashboard/swap/SwapStepFourScreen";
 import SwapStatusScreen from "./app/dashboard/swap/SwapStatusScreen";
 import SwapListScreen from "./app/dashboard/swap/SwapListScreen";
+import UserSettingsScreen from "./app/dashboard/user/UserSettingsScreen";
 
 function App() {
     return (
@@ -33,6 +34,8 @@ function App() {
             <Route path={"/app/swap/all"} element={<SwapListScreen />}/>
 
             <Route path={"/app/swap/:swapId"} element={<SwapStatusScreen />}/>
+
+            <Route path={"/app/user/settings"} element={<UserSettingsScreen/>}/>
         </Routes>
     );
 }

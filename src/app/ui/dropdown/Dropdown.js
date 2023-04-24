@@ -43,7 +43,7 @@ Dropdown.propTypes = {
     text: PropTypes.string.isRequired,
     headerTop: PropTypes.string,
     headerBottom: PropTypes.string,
-    children: PropTypes.element.isRequired
+    children: PropTypes.node.isRequired
 };
 
 export default Dropdown;

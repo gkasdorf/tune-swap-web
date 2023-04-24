@@ -6,14 +6,10 @@ class DeleteApi {
      * @param password
      * @return {Promise<ApiResponse>}
      */
-    static delete = (password) => {
+    static delete = () => {
         const api = new Api("/v2/user/delete");
 
-        const data = {
-            password: password
-        };
-
-        return api.post(data);
+        return api.post({});
     };
 }
 
