@@ -9,6 +9,7 @@ import {Link} from "react-router-dom";
 
 const DashScreen = () => {
     const [swaps, setSwaps] = useState([]);
+    // eslint-disable-next-line no-unused-vars
     const [syncs, setSyncs] = useState([]);
 
     const [dataLoading, setDataLoading] = useState(true);
@@ -19,9 +20,6 @@ const DashScreen = () => {
 
     const getData = async() => {
         const swapsRes = await SwapApi.getAll();
-
-        console.log(swaps);
-        console.log(syncs);
 
         setSwaps(swapsRes.data.swaps);
         setSyncs([]);
@@ -39,7 +37,7 @@ const DashScreen = () => {
                             </DialogTitle>
                             <p className={"text-center"}>To get started, click Start Swap below!</p>
                             <div className={"flex justify-center mt-4"}>
-                                <Button>Start Swap</Button>
+                                <Link to={"/app/swap"}><Button>Start Swap</Button></Link>
                             </div>
                         </Dialog>
                     </div>
@@ -48,7 +46,7 @@ const DashScreen = () => {
                             <div className={"col-span-1"}>
                                 <Dialog max={"mx-auto"}>
                                     <DialogTitle
-                                        button={<Button>View All</Button>}
+                                        button={<Link to={"/app/swap/all"}><Button>View All</Button></Link>}
                                     >
                                         Swap History
                                     </DialogTitle>
@@ -71,7 +69,6 @@ const DashScreen = () => {
                                                         <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                                                             {swaps.map((swap, index) => (
                                                                 <tr key={index}>
-                                                                    {console.log(swap)}
                                                                     <td className="px-2 py-1 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
                                                                         {swap.playlist_name}
                                                                     </td>

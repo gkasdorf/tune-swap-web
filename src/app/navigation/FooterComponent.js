@@ -5,9 +5,9 @@ const FooterComponent = () => {
     return (
         <>
             <footer className={"bg-white border-t-2 border-gray-300"}>
-                <div className={"mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8"}>
+                <div className={"mx-auto max-w-screen-xl px-4 py-8 md:py-14 sm:px-6 lg:px-8"}>
                     <div>
-                        <div className={"mt-8 grid grid-cols-2 lg:grid-cols-4"}>
+                        <div className={"grid grid-cols-2 lg:grid-cols-4 gap-y-10"}>
                             <div className={"col-span-2 sm:col-span-1"}>
                                 <h3 className={"text-xl font-medium text-gray-900 pb-2"}>
                                     TuneSwap
@@ -15,7 +15,7 @@ const FooterComponent = () => {
                                 <ul>
                                     <li>
                                         <Link to={"https://apps.apple.com/us/app/tuneswap/id6447500724"}>
-                                            <img src={"./DownloadOnAppStore.svg"}  alt={"Download on App Store"}/>
+                                            <img src={"/DownloadOnAppStore.svg"}  alt={"Download on App Store"}/>
                                         </Link>
                                     </li>
                                 </ul>
@@ -26,13 +26,13 @@ const FooterComponent = () => {
                                 </h3>
                                 <ul>
                                     <li>
-                                        <Link to={"/home"}>Home</Link>
+                                        <Link to={"/home"} className={"text-indigo-600 hover:text-indigo-950"}>Home</Link>
                                     </li>
                                     <li>
-                                        <Link to={"/features"}>Features</Link>
+                                        <Link to={"/features"} className={"text-indigo-600 hover:text-indigo-950"}>Features</Link>
                                     </li>
                                     <li>
-                                        <Link to={"https://status.tuneswap.app"}>Service Status</Link>
+                                        <Link to={"https://status.tuneswap.app"} className={"text-indigo-600 hover:text-indigo-950"}>Service Status</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -42,13 +42,13 @@ const FooterComponent = () => {
                                 </h3>
                                 <ul>
                                     <li>
-                                        <Link to={"/terms"}>Terms of Service</Link>
+                                        <Link to={"/terms"} className={"text-indigo-600 hover:text-indigo-950"}>Terms of Service</Link>
                                     </li>
                                     <li>
-                                        <Link to={"/privacy"}>Privacy Policy</Link>
+                                        <Link to={"/privacy"} className={"text-indigo-600 hover:text-indigo-950"}>Privacy Policy</Link>
                                     </li>
                                     <li>
-                                        <Link to={"/license"}>License</Link>
+                                        <Link to={"/license"} className={"text-indigo-600 hover:text-indigo-950"}>License</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -58,20 +58,20 @@ const FooterComponent = () => {
                                 </h3>
                                 <ul>
                                     <li>
-                                        <Link to={"https://github.com/gkasdorf/tuneswap-web/issues"}>Report a Bug</Link>
+                                        <Link to={"https://github.com/gkasdorf/tuneswap-web/issues"} className={"text-indigo-600 hover:text-indigo-950"}>Report a Bug</Link>
                                     </li>
                                     <li>
-                                        <Link to={"https://github.com/gkasdorf/tuneswap-web/issues"}>Feedback</Link>
+                                        <Link to={"https://github.com/gkasdorf/tuneswap-web/issues"} className={"text-indigo-600 hover:text-indigo-950"}>Feedback</Link>
                                     </li>
                                     <li>
-                                        <Link to={"https://trello.com/b/dOEkVxW7/tuneswap"}>Roadmap</Link>
+                                        <Link to={"https://trello.com/b/dOEkVxW7/tuneswap"} className={"text-indigo-600 hover:text-indigo-950"}>Roadmap</Link>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div className={"mt-8 flex items-center justify-center"}>
-                        <p>Copyright &copy; 2023 Gavin Kasdorf - <Link to={"/license"} className={""}>License</Link></p>
+                    <div className={"mt-8 md:mt-16 flex items-center justify-center"}>
+                        <p>Copyright &copy; 2023 Gavin Kasdorf - <Link to={"/license"} className={"text-indigo-600 hover:text-indigo-950"}>License</Link></p>
                     </div>
                 </div>
             </footer>
