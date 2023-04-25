@@ -62,12 +62,12 @@ const SwapListScreen = () => {
                             <div className={"flex justify-center mt-6"}>
                                 {
                                     currentOffset > 0 && (
-                                        <Button onClick={() => setCurrentOffset((prev) => prev - 10)}>Previous</Button>
+                                        <Button onClick={() => setCurrentOffset((prev) => prev - 10)} className={"mx-1"}>Previous</Button>
                                     )
                                 }
                                 {
                                     totalSwaps > 10 && currentOffset <= totalSwaps - 10 && (
-                                        <Button onClick={() => setCurrentOffset((prev) => prev + 10)}>Next</Button>
+                                        <Button onClick={() => setCurrentOffset((prev) => prev + 10)} className={"mx-1"}>Next</Button>
                                     )
                                 }
                             </div>
