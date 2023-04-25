@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
 import MainWrapper from "../../wrappers/MainWrapper";
 import {useDispatch, useSelector} from "react-redux";
@@ -8,9 +8,12 @@ import HasApi from "../../../api/user/HasApi";
 import Dialog from "../../ui/dialog/Dialog";
 import DialogTitle from "../../ui/dialog/DialogTitle";
 import SwapServiceButton from "./SwapServiceButton";
+import TidalModal from "./authScreens/TidalModal";
 
 const SwapStepThreeScreen = () => {
     const { from, playlistName, playlistId } = useSelector(state => state.swap);
+
+    const [tidalModalVisible, setTidalModalVisible] = useState(false);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -36,7 +39,7 @@ const SwapStepThreeScreen = () => {
         const has = HasApi.check(service);
 
         if(!has) {
-            showAuth(service);
+            showAuth(service, setTidalModalVisible);
             return;
         }
 
@@ -66,6 +69,7 @@ const SwapStepThreeScreen = () => {
                         </Dialog>
                     </div>
                 </div>
+                <TidalModal setVisible={setTidalModalVisible} visible={tidalModalVisible} />
             </MainWrapper>
         </ProtectedRoute>
     );

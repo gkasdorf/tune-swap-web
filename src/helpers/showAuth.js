@@ -1,6 +1,6 @@
 import MusicService from "../models/MusicService";
 
-export const showAuth = (service) => {
+export const showAuth = (service, setTidalModalVisible) => {
     let url = null;
 
     switch(service) {
@@ -11,6 +11,10 @@ export const showAuth = (service) => {
     case MusicService.AppleMusic: {
         url = "/app/user/auth/applemusic";
         break;
+    }
+    case MusicService.Tidal: {
+        setTidalModalVisible(true);
+        return;
     }
     }
 

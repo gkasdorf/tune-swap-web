@@ -1,5 +1,4 @@
-/* eslint-disable */
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
 import MainWrapper from "../../wrappers/MainWrapper";
 import Dialog from "../../ui/dialog/Dialog";
@@ -10,8 +9,11 @@ import {clearSwap, setSwapFrom} from "../../../slices/swapSlice";
 import {useDispatch} from "react-redux";
 import HasApi from "../../../api/user/HasApi";
 import {showAuth} from "../../../helpers/showAuth";
+import TidalModal from "./authScreens/TidalModal";
 
 const SwapStepOneScreen = () => {
+    const [tidalModalVisible, setTidalModalVisible] = useState(false);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -23,8 +25,8 @@ const SwapStepOneScreen = () => {
     const onServiceClick = async (service) => {
         const has = await HasApi.check(service);
 
-        if(!has) {
-            showAuth(service);
+        if(has) {
+            showAuth(service, setTidalModalVisible);
             return;
         }
 
@@ -50,6 +52,7 @@ const SwapStepOneScreen = () => {
                         </Dialog>
                     </div>
                 </div>
+                <TidalModal setVisible={setTidalModalVisible} visible={tidalModalVisible} />
             </MainWrapper>
         </ProtectedRoute>
     );
