@@ -17,6 +17,8 @@ import UserSettingsScreen from "./app/dashboard/user/UserSettingsScreen";
 import SpotifyAuthScreen from "./app/dashboard/swap/authScreens/SpotifyAuthScreen";
 import SpotifyAuthCallback from "./app/dashboard/swap/authScreens/callbacks/SpotifyAuthCallback";
 import AppleMusicAuthScreen from "./app/dashboard/swap/authScreens/AppleMusicAuthScreen";
+import PrivacyScreen from "./app/policy/PrivacyScreen";
+import TermsScreen from "./app/policy/TermsScreen";
 
 function App() {
     return (
@@ -24,6 +26,9 @@ function App() {
             <Route path="/" element={<HomeScreen/>}/>
             <Route path={"/login"} element={<LoginScreen/>}/>
             <Route path={"/signup"} element={<SignupScreen/>}/>
+
+            <Route path={"/privacy"} element={<PrivacyScreen/>}/>
+            <Route path={"/terms"} element={<TermsScreen/>}/>
 
             <Route path={"/app"} element={<DashScreen/>}/>
             <Route path={"/app/home"} element={<DashScreen/>}/>
