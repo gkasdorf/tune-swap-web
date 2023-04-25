@@ -6,6 +6,11 @@ export const showAuth = (service) => {
     switch(service) {
     case MusicService.Spotify: {
         url = "/app/user/auth/spotify";
+        break;
+    }
+    case MusicService.AppleMusic: {
+        url = "/app/user/auth/applemusic";
+        break;
     }
     }
 

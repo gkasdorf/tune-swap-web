@@ -9,7 +9,7 @@ const configure = () => {
     });
 
     console.log("MusicKit configured.");
-}
+};
 
 configure();
 
@@ -17,7 +17,7 @@ const onButtonClick = () => {
     const button = document.getElementById("apple-music-authorize");
     button.classList.add("disabled");
 
-    const user = JSON.parse(localStorage.getItem("user"));
+    const apiToken = localStorage.getItem("token");
 
     // eslint-disable-next-line no-undef
     let music = MusicKit.getInstance();
@@ -26,11 +26,11 @@ const onButtonClick = () => {
         console.log("authorized");
         console.log("token is: " + token);
 
-        window.location.href = "https://api.tuneswap.app/api/applemusic/auth" + "?apiToken=" + encodeURIComponent(user.apiToken) + "&token=" + encodeURIComponent(token) + "&web=true";
+        window.location.href = "http://192.168.1.2:8000/api/applemusic/auth" + "?apiToken=" + encodeURIComponent(apiToken) + "&token=" + encodeURIComponent(token) + "&web=true";
     });
-}
+};
 
 setTimeout(() => {
     const authDiv = document.getElementById("authorize");
-    authDiv.innerHTML += "<button id='apple-music-authorize' onclick='onButtonClick()' class='btn btn-primary'>Login with Apple Music</button>";
+    authDiv.innerHTML += "<button id='apple-music-authorize' onclick='onButtonClick()' class='py-2 px-4 rounded-md text-md focus:outline-none bg-indigo-500 hover:bg-indigo-700 text-white'>Login with Apple Music</button>";
 }, 500);

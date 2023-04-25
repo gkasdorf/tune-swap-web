@@ -16,6 +16,7 @@ import SwapListScreen from "./app/dashboard/swap/SwapListScreen";
 import UserSettingsScreen from "./app/dashboard/user/UserSettingsScreen";
 import SpotifyAuthScreen from "./app/dashboard/swap/authScreens/SpotifyAuthScreen";
 import SpotifyAuthCallback from "./app/dashboard/swap/authScreens/callbacks/SpotifyAuthCallback";
+import AppleMusicAuthScreen from "./app/dashboard/swap/authScreens/AppleMusicAuthScreen";
 
 function App() {
     return (
@@ -39,6 +40,8 @@ function App() {
 
             <Route path={"/app/user/auth/spotify"} element={<SpotifyAuthScreen />}/>
             <Route path={"/callbacks/spotify"} element={<SpotifyAuthCallback />}/>
+
+            <Route path={"/app/user/auth/applemusic"} element={<AppleMusicAuthScreen />}/>
 
             <Route path={"/app/user/settings"} element={<UserSettingsScreen/>}/>
         </Routes>
