@@ -1,42 +1,54 @@
+import React from "react";
 import "./App.scss";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./App.css";
+import "preline";
 import {Route, Routes} from "react-router-dom";
-import Home from "./components/home/Home";
-import Signin from "./components/signin/Signin";
-import Signup from "./components/signup/Signup";
-import Dash from "./components/app/dash/Dash";
-import CreateSwap from "./components/app/swap/CreateSwap";
-import Swap from "./components/app/swap/Swap";
-import SpotifyAuthCallback from "./components/app/callbacks/SpotifyAuthCallback";
-import AppleMusicAuth from "./components/app/appleMusic/AppleMusicAuth";
-import Privacy from "./components/policies/Privacy";
-import Terms from "./components/policies/Terms";
-import Features from "./components/home/Features";
-import Swaps from "./components/app/swap/Swaps";
+import HomeScreen from "./app/home/HomeScreen";
+import LoginScreen from "./app/home/LoginScreen";
+import SignupScreen from "./app/home/SignupScreen";
+import DashScreen from "./app/dashboard/dash/DashScreen";
+import SwapStepOneScreen from "./app/dashboard/swap/SwapStepOneScreen";
+import SwapStepTwoScreen from "./app/dashboard/swap/SwapStepTwoScreen";
+import SwapStepThreeScreen from "./app/dashboard/swap/SwapStepThreeScreen";
+import SwapStepFourScreen from "./app/dashboard/swap/SwapStepFourScreen";
+import SwapStatusScreen from "./app/dashboard/swap/SwapStatusScreen";
+import SwapListScreen from "./app/dashboard/swap/SwapListScreen";
+import UserSettingsScreen from "./app/dashboard/user/UserSettingsScreen";
+import SpotifyAuthScreen from "./app/dashboard/swap/authScreens/SpotifyAuthScreen";
+import SpotifyAuthCallback from "./app/dashboard/swap/authScreens/callbacks/SpotifyAuthCallback";
+import AppleMusicAuthScreen from "./app/dashboard/swap/authScreens/AppleMusicAuthScreen";
+import PrivacyScreen from "./app/policy/PrivacyScreen";
+import TermsScreen from "./app/policy/TermsScreen";
 
 function App() {
     return (
         <Routes>
-            <Route path={"/"} element={<Home />} />
-            <Route path={"/home"} element={<Home />} />
-            <Route path={"/signin"} element={<Signin />} />
-            <Route path={"/signup"} element={<Signup />} />
-            <Route path={"/features"} element={<Features />} />
+            <Route path="/" element={<HomeScreen/>}/>
+            <Route path={"/login"} element={<LoginScreen/>}/>
+            <Route path={"/signup"} element={<SignupScreen/>}/>
 
-            <Route path={"/privacy"} element={<Privacy />} />
-            <Route path={"/terms"} element={<Terms />} />
+            <Route path={"/privacy"} element={<PrivacyScreen/>}/>
+            <Route path={"/terms"} element={<TermsScreen/>}/>
 
-            <Route path={"/callbacks/spotify"} element={<SpotifyAuthCallback />} />
+            <Route path={"/app"} element={<DashScreen/>}/>
+            <Route path={"/app/home"} element={<DashScreen/>}/>
 
-            <Route path={"/app"}>
-                <Route path={""} element={<Dash />} />
-                <Route path={"dash"} element={<Dash />} />
-                <Route path={"swap"} element={<CreateSwap />} />
-                <Route path={"swap/:swapId"} element={<Swap />} />
-                <Route path={"swaps"} element={<Swaps />} />
-                <Route path={"applemusic/auth"} element={<AppleMusicAuth />} />
-            </Route>
+            <Route path={"/app/swap"} element={<SwapStepOneScreen/>}/>
+            <Route path={"/app/swap/step-one"} element={<SwapStepOneScreen/>}/>
+            <Route path={"/app/swap/step-two"} element={<SwapStepTwoScreen/>}/>
+            <Route path={"/app/swap/step-three"} element={<SwapStepThreeScreen/>}/>
+            <Route path={"/app/swap/step-four"} element={<SwapStepFourScreen/>}/>
+
+            <Route path={"/app/swap/all"} element={<SwapListScreen />}/>
+
+            <Route path={"/app/swap/:swapId"} element={<SwapStatusScreen />}/>
+
+            <Route path={"/app/user/auth/spotify"} element={<SpotifyAuthScreen />}/>
+            <Route path={"/callbacks/spotify"} element={<SpotifyAuthCallback />}/>
+
+            <Route path={"/app/user/auth/applemusic"} element={<AppleMusicAuthScreen />}/>
+
+            <Route path={"/app/user/settings"} element={<UserSettingsScreen/>}/>
         </Routes>
     );
 }
