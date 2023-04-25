@@ -56,7 +56,6 @@ const AppleMusicAuthScreen = () => {
                                             </>
                                         )
                                     }
-
                                 </div>
                             </div>
                         </Dialog>
