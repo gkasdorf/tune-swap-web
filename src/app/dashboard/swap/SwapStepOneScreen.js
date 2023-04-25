@@ -25,7 +25,7 @@ const SwapStepOneScreen = () => {
     const onServiceClick = async (service) => {
         const has = await HasApi.check(service);
 
-        if(has) {
+        if(!has) {
             showAuth(service, setTidalModalVisible);
             return;
         }
