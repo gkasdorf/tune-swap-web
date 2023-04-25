@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useEffect} from "react";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
 import MainWrapper from "../../wrappers/MainWrapper";
@@ -8,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 import {clearSwap, setSwapFrom} from "../../../slices/swapSlice";
 import {useDispatch} from "react-redux";
 import HasApi from "../../../api/user/HasApi";
+import {showAuth} from "../../../helpers/showAuth";
 
 const SwapStepOneScreen = () => {
     const dispatch = useDispatch();
@@ -19,7 +21,7 @@ const SwapStepOneScreen = () => {
     }, []);
 
     const onServiceClick = async (service) => {
-        const has = HasApi.check(service);
+        const has = await HasApi.check(service);
 
         if(!has) {
             showAuth(service);
@@ -29,10 +31,6 @@ const SwapStepOneScreen = () => {
         // Set the from service and redirect to next step
         dispatch(setSwapFrom(service));
         navigate("/app/swap/step-two");
-    };
-
-    const showAuth = (service) => {
-        alert(`You must first link ${service} to your account.`);
     };
 
     return (

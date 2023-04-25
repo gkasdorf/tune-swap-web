@@ -26,6 +26,10 @@ const Button = (
     }
 ) => {
     const background = () => {
+        if(disabled) {
+            return "bg-gray-500 text-white";
+        }
+
         if(outline) {
             return "bg-white";
         }
@@ -56,26 +60,30 @@ const Button = (
     };
 
     const hover = () => {
+        if(disabled) {
+            return;
+        }
+
         if(outline) {
             return "hover:bg-indigo-500 hover:text-white";
-        } else {
-            switch(variant) {
-            case "success": {
-                return "hover:bg-green-600";
-            }
-            case "warning": {
-                return "hover:bg-yellow-600";
-            }
-            case "danger": {
-                return "hover:bg-red-600";
-            }
-            case "secondary": {
-                return "hover:bg-gray-600";
-            }
-            default: {
-                return "hover:bg-indigo-600";
-            }
-            }
+        }
+
+        switch(variant) {
+        case "success": {
+            return "hover:bg-green-600";
+        }
+        case "warning": {
+            return "hover:bg-yellow-600";
+        }
+        case "danger": {
+            return "hover:bg-red-600";
+        }
+        case "secondary": {
+            return "hover:bg-gray-600";
+        }
+        default: {
+            return "hover:bg-indigo-600";
+        }
         }
     };
 
@@ -90,7 +98,7 @@ const Button = (
     return (
         <button
             className={`py-2 px-4 rounded-md text-md focus:outline-none
-            ${background()} ${textColor()} ${className} ${disabled ? "bg-gray-500 hover:cursor-default" : ""} ${hover()}`}
+            ${background()} ${hover()} ${textColor() ?? ""} ${className ?? ""}`}
             {...props}
             onClick={handleClick}
         >

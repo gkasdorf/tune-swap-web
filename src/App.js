@@ -14,6 +14,8 @@ import SwapStepFourScreen from "./app/dashboard/swap/SwapStepFourScreen";
 import SwapStatusScreen from "./app/dashboard/swap/SwapStatusScreen";
 import SwapListScreen from "./app/dashboard/swap/SwapListScreen";
 import UserSettingsScreen from "./app/dashboard/user/UserSettingsScreen";
+import SpotifyAuthScreen from "./app/dashboard/swap/authScreens/SpotifyAuthScreen";
+import SpotifyAuthCallback from "./app/dashboard/swap/authScreens/callbacks/SpotifyAuthCallback";
 
 function App() {
     return (
@@ -34,6 +36,9 @@ function App() {
             <Route path={"/app/swap/all"} element={<SwapListScreen />}/>
 
             <Route path={"/app/swap/:swapId"} element={<SwapStatusScreen />}/>
+
+            <Route path={"/app/user/auth/spotify"} element={<SpotifyAuthScreen />}/>
+            <Route path={"/callbacks/spotify"} element={<SpotifyAuthCallback />}/>
 
             <Route path={"/app/user/settings"} element={<UserSettingsScreen/>}/>
         </Routes>
