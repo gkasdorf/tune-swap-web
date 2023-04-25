@@ -28,9 +28,9 @@ const FooterComponent = () => {
                                     <li>
                                         <Link to={"/home"} className={"text-indigo-600 hover:text-indigo-950"}>Home</Link>
                                     </li>
-                                    <li>
-                                        <Link to={"/features"} className={"text-indigo-600 hover:text-indigo-950"}>Features</Link>
-                                    </li>
+                                    {/*<li>*/}
+                                    {/*    <Link to={"/features"} className={"text-indigo-600 hover:text-indigo-950"}>Features</Link>*/}
+                                    {/*</li>*/}
                                     <li>
                                         <Link to={"https://status.tuneswap.app"} className={"text-indigo-600 hover:text-indigo-950"}>Service Status</Link>
                                     </li>
@@ -46,9 +46,6 @@ const FooterComponent = () => {
                                     </li>
                                     <li>
                                         <Link to={"/privacy"} className={"text-indigo-600 hover:text-indigo-950"}>Privacy Policy</Link>
-                                    </li>
-                                    <li>
-                                        <Link to={"/license"} className={"text-indigo-600 hover:text-indigo-950"}>License</Link>
                                     </li>
                                 </ul>
                             </div>

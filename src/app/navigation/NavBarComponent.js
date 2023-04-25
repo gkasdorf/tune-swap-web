@@ -44,9 +44,9 @@ const NavBarComponent = () => {
 
                                 <div className={"hidden md:flex pl-4"}>
                                     <Link to={"/"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Home</Link>
-                                    <Link to={"/about"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>About</Link>
-                                    <Link to={"/features"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Features</Link>
-                                    <Link to={"/pricing"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Pricing</Link>
+                                    {/*<Link to={"/about"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>About</Link>*/}
+                                    {/*<Link to={"/features"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Features</Link>*/}
+                                    {/*<Link to={"/pricing"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Pricing</Link>*/}
                                 </div>
                             </nav>
                         )
@@ -85,9 +85,9 @@ const NavBarComponent = () => {
                         ) : (
                             <nav className={"flex items-center justify-center"}>
                                 <Link to={"/"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Home</Link>
-                                <Link to={"/about"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>About</Link>
-                                <Link to={"/features"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Features</Link>
-                                <Link to={"/pricing"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Pricing</Link>
+                                {/*<Link to={"/about"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>About</Link>*/}
+                                {/*<Link to={"/features"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Features</Link>*/}
+                                {/*<Link to={"/pricing"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Pricing</Link>*/}
                             </nav>
                         )
                     }
