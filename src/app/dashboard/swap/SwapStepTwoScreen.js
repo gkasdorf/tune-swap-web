@@ -7,6 +7,7 @@ import Dialog from "../../ui/dialog/Dialog";
 import DialogTitle from "../../ui/dialog/DialogTitle";
 import ServicesApi from "../../../api/app/ServicesApi";
 import {setSwapPlaylist} from "../../../slices/swapSlice";
+import MusicServiceIcon from "../../../models/MusicServiceIcon";
 
 const SwapStepTwoScreen = () => {
     // eslint-disable-next-line no-unused-vars
@@ -29,8 +30,16 @@ const SwapStepTwoScreen = () => {
 
     const loadPlaylists = async () => {
         const plRes = await ServicesApi.getUserPlaylists(from);
+        const pls = plRes.data.playlists;
 
-        setPlaylists(plRes.data.playlists);
+        pls.unshift({
+            id: "library",
+            name: `My ${from} Library`,
+            image: null,
+            description: ""
+        });
+
+        setPlaylists(pls);
         setDataLoading(false);
     };
 
@@ -87,7 +96,7 @@ const SwapStepTwoScreen = () => {
                                                                 >
                                                                     <dt className={"text-md font-medium text-gray-800"}>
                                                                         <div className={"flex flex-row items-center"}>
-                                                                            <img src={playlist.image} alt={playlist.name} className={"w-14 h-14 rounded-2 mr-2"} />
+                                                                            <img src={playlist.image ?? MusicServiceIcon(from)} alt={playlist.name} className={"h-14 rounded-2 mr-2"} />
                                                                             <p>
                                                                                 {playlist.name}
                                                                             </p>
