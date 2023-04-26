@@ -30,8 +30,16 @@ const SwapStepTwoScreen = () => {
 
     const loadPlaylists = async () => {
         const plRes = await ServicesApi.getUserPlaylists(from);
+        const pls = plRes.data.playlists;
 
-        setPlaylists(plRes.data.playlists);
+        pls.unshift({
+            id: "library",
+            name: `My ${from} Library`,
+            image: null,
+            description: ""
+        });
+
+        setPlaylists(pls);
         setDataLoading(false);
     };
 
