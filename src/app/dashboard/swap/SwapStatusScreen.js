@@ -3,7 +3,7 @@ import ProtectedRoute from "../../wrappers/ProtectedRoute";
 import MainWrapper from "../../wrappers/MainWrapper";
 import Dialog from "../../ui/dialog/Dialog";
 import DialogTitle from "../../ui/dialog/DialogTitle";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import SwapApi from "../../../api/swap/SwapApi";
 import MusicServiceIcon from "../../../models/MusicServiceIcon";
 import {ArrowRight, ChevronRight} from "react-bootstrap-icons";
@@ -120,6 +120,24 @@ const SwapStatusScreen = () => {
                                                         <span className={"font-bold"}>Songs Not Found</span>
                                                         <span className={"float-right"}>{swap.songs_not_found} { swap.songs_not_found > 0 && <ChevronRight className={"inline"}/> }</span>
                                                     </dt>
+                                                    {
+                                                        swap.status === "Completed" && (
+                                                            <>
+                                                                <Link to={swap.from_playlist_url}>
+                                                                    <dt className={"bg-white px-4 py-2 border-b hover:bg-gray-50"}>
+                                                                        <span className={"font-bold"}>View Original Playlist on {swap.from_service}</span>
+                                                                        <span className={"float-right"}><ChevronRight className={"inline"} /></span>
+                                                                    </dt>
+                                                                </Link>
+                                                                <Link to={swap.to_playlist_url}>
+                                                                    <dt className={"bg-white px-4 py-2 border-b hover:bg-gray-50"}>
+                                                                        <span className={"font-bold"}>View New Playlist on {swap.to_service}</span>
+                                                                        <span className={"float-right"}><ChevronRight className={"inline"} /></span>
+                                                                    </dt>
+                                                                </Link>
+                                                            </>
+                                                        )
+                                                    }
                                                 </dl>
                                             </div>
                                         </div>
