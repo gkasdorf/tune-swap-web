@@ -25,9 +25,8 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i"
+          ARGS: '-azvp --del -e "ssh -p${{ secrets.SSH_PORT }}'
           SOURCE: "build/"
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
-          REMOTE_PORT: ${{ secrets.SSH_PORT }}
           TARGET: ${{ secrets.SSH_TARGET }}
