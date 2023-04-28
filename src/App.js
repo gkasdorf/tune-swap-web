@@ -21,6 +21,9 @@ import PrivacyScreen from "./app/policy/PrivacyScreen";
 import TermsScreen from "./app/policy/TermsScreen";
 import SyncsScreen from "./app/dashboard/sync/SyncsScreen";
 import SyncStepOne from "./app/dashboard/sync/SyncStepOne";
+import SharesScreen from "./app/dashboard/share/SharesScreen";
+import NewShareScreen from "./app/dashboard/share/NewShareScreen";
+import ShareScreen from "./app/dashboard/share/ShareScreen";
 
 const App = () => {
     return (
@@ -49,6 +52,10 @@ const App = () => {
 
             <Route path={"/app/sync/new"} element={<SyncStepOne />}/>
             <Route path={"/app/sync/new/step-one"} element={<SyncStepOne />}/>
+
+            <Route path={"/app/share"} element={<SharesScreen />}/>
+            <Route path={"/app/share/new"} element={<NewShareScreen />}/>
+            <Route path={"/share/:shareId"} element={<ShareScreen />}/>
 
             <Route path={"/app/user/auth/spotify"} element={<SpotifyAuthScreen />}/>
             <Route path={"/callbacks/spotify"} element={<SpotifyAuthCallback />}/>
