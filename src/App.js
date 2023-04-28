@@ -19,8 +19,10 @@ import SpotifyAuthCallback from "./app/dashboard/swap/authScreens/callbacks/Spot
 import AppleMusicAuthScreen from "./app/dashboard/swap/authScreens/AppleMusicAuthScreen";
 import PrivacyScreen from "./app/policy/PrivacyScreen";
 import TermsScreen from "./app/policy/TermsScreen";
+import SyncsScreen from "./app/dashboard/sync/SyncsScreen";
+import SyncStepOne from "./app/dashboard/sync/SyncStepOne";
 
-function App() {
+const App = () => {
     return (
         <Routes>
             <Route path="/" element={<HomeScreen/>}/>
@@ -43,6 +45,11 @@ function App() {
 
             <Route path={"/app/swap/:swapId"} element={<SwapStatusScreen />}/>
 
+            <Route path={"/app/sync"} element={<SyncsScreen />}/>
+
+            <Route path={"/app/sync/new"} element={<SyncStepOne />}/>
+            <Route path={"/app/sync/new/step-one"} element={<SyncStepOne />}/>
+
             <Route path={"/app/user/auth/spotify"} element={<SpotifyAuthScreen />}/>
             <Route path={"/callbacks/spotify"} element={<SpotifyAuthCallback />}/>
 
@@ -51,6 +58,6 @@ function App() {
             <Route path={"/app/user/settings"} element={<UserSettingsScreen/>}/>
         </Routes>
     );
-}
+};
 
 export default App;
