@@ -17,6 +17,12 @@ class ShareApi {
 
         return api.get();
     }
+
+    static getAll() {
+        const api = new Api("/v2/share");
+
+        return api.get();
+    }
 }
 
 export default ShareApi;

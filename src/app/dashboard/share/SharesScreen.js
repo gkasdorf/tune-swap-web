@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProtectedRoute from "../../wrappers/ProtectedRoute";
 import MainWrapper from "../../wrappers/MainWrapper";
 import Dialog from "../../ui/dialog/Dialog";
 import Headers from "../../ui/typography/Headers";
 import Button from "../../ui/button/Button";
 import {Link} from "react-router-dom";
+import ShareApi from "../../../api/share/ShareApi";
+import Spinner from "../../ui/spinner/Spinner";
+import { DescriptionList, DescriptionListItem } from "../../ui/descriptionList/DescriptionList";
 
 const SharesScreen = () => {
+    const [shares, setShares] = useState(null);
+    const [sharesLoading, setSharesLoading] = useState(true);
+
+    useEffect(() => {
+        loadShares();
+    }, []);
+
+    const loadShares = async () => {
+        const res = await ShareApi.getAll();
+
+        console.log(res.data);
+
+        setShares(res.data.shares);
+        setSharesLoading(false);
+    };
+
     return (
         <ProtectedRoute>
             <MainWrapper>
@@ -29,6 +48,23 @@ const SharesScreen = () => {
                             <div className={"col-span-6 xl:col-span-4"}>
                                 <Dialog>
                                     <Headers.h2 bold>Your Shares</Headers.h2>
+                                    {
+                                        sharesLoading && (
+                                            <Spinner />
+                                        ) || shares && shares.length === 0 && (
+                                            <p className="text-center">You don&apos;t have any shares.</p>
+                                        ) || shares && shares.length > 0 && (
+                                            <DescriptionList>
+                                                {
+                                                    shares.map((share, index) => (
+                                                        <DescriptionListItem key={index}>
+                                                            <Link to={`/share/${share.access_id}`}>{share.playlist.name}</Link>
+                                                        </DescriptionListItem>
+                                                    ))
+                                                }
+                                            </DescriptionList>
+                                        )
+                                    }
                                 </Dialog>
                             </div>
                         </div>
