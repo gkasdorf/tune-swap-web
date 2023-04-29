@@ -8,17 +8,19 @@ import SwapServiceButton from "../swap/SwapServiceButton";
 import MusicServiceIcon from "../../../models/MusicServiceIcon";
 import ShareApi from "../../../api/share/ShareApi";
 import {useNavigate} from "react-router-dom";
+import Spinner from "../../ui/spinner/Spinner";
 
 const NewShareScreen = () => {
     const [playlists, setPlaylists] = useState(null);
-
     const [service, setService] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
     const loadPlaylists = async(service) => {
         setPlaylists([]);
         setService(service);
+        setLoading(true);
 
         const res = await ServicesApi.getUserPlaylists(service);
 
@@ -27,9 +29,12 @@ const NewShareScreen = () => {
         }
 
         setPlaylists(res.data.playlists);
+        setLoading(false);
     };
 
     const onPlaylistClick = async (id) => {
+        setLoading(true);
+
         const res = await ShareApi.create(service, id);
 
         if(!res.success) {
@@ -56,12 +61,12 @@ const NewShareScreen = () => {
                                 )
                             }
                             {
-                                playlists && playlists.length === 0 && (
-                                    <p className={"text-center"}>Loading...</p>
+                                loading && (
+                                    <Spinner text/>
                                 )
                             }
                             {
-                                playlists && playlists.length > 0 && (
+                                !loading && playlists && playlists.length > 0 && (
                                     <div className={"border-gray-200 border"}>
                                         <dl>
                                             {

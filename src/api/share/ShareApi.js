@@ -1,7 +1,7 @@
 import Api from "../Api";
 
 class ShareApi {
-    static create(service, id) {
+    static create = (service, id) => {
         const api = new Api("/v2/share/create");
 
         const data = {
@@ -10,19 +10,25 @@ class ShareApi {
         };
 
         return api.post(data);
-    }
+    };
 
-    static get(id) {
+    static get = (id) => {
         const api = new Api(`/v2/share/${id}`);
 
         return api.get();
-    }
+    };
 
-    static getAll() {
+    static getAll = () => {
         const api = new Api("/v2/share");
 
         return api.get();
-    }
+    };
+
+    static delete = (id) => {
+        const api = new Api(`/v2/share/${id}/delete`);
+
+        return api.get();
+    };
 }
 
 export default ShareApi;
