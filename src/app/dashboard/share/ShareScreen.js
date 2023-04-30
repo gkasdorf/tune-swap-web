@@ -50,7 +50,16 @@ const ShareScreen = () => {
     };
 
     const onServiceClick = async (service) => {
-        console.log(service);
+        const res = await ShareApi.startCopy(shareId, service);
+
+        if(!res.success) {
+            setError(res.data.message);
+            return;
+        }
+
+        console.log(res);
+
+        navigate(`/app/share/copy/${res.data.copy.id}`);
     };
 
     const onDeleteClick = async() => {

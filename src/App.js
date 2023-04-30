@@ -24,6 +24,7 @@ import SyncStepOne from "./app/dashboard/sync/SyncStepOne";
 import SharesScreen from "./app/dashboard/share/SharesScreen";
 import NewShareScreen from "./app/dashboard/share/NewShareScreen";
 import ShareScreen from "./app/dashboard/share/ShareScreen";
+import CopyScreen from "./app/dashboard/share/CopyScreen";
 
 const App = () => {
     return (
@@ -55,6 +56,7 @@ const App = () => {
 
             <Route path={"/app/share"} element={<SharesScreen />}/>
             <Route path={"/app/share/new"} element={<NewShareScreen />}/>
+            <Route path={"/app/share/copy/:copyId"} element={<CopyScreen />}/>
             <Route path={"/share/:shareId"} element={<ShareScreen />}/>
 
             <Route path={"/app/user/auth/spotify"} element={<SpotifyAuthScreen />}/>

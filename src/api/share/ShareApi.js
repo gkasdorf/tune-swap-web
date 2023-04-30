@@ -29,6 +29,22 @@ class ShareApi {
 
         return api.get();
     };
+
+    static startCopy = (id, service) => {
+        const api = new Api(`/v2/share/${id}/copy`);
+
+        const data = {
+            service: service
+        };
+
+        return api.post(data);
+    };
+
+    static getCopy = (id) => {
+        const api = new Api(`/v2/share/copy/${id}`);
+
+        return api.get();
+    };
 }
 
 export default ShareApi;
