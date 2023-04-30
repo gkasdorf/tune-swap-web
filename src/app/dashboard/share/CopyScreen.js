@@ -21,6 +21,10 @@ const CopyScreen = () => {
 
     useEffect(() => {
         loadCopy();
+
+        return () => {
+            if(reload) clearInterval(reload);
+        };
     }, []);
 
     const loadCopy = async () => {
@@ -42,10 +46,6 @@ const CopyScreen = () => {
         if((res.data.copy.status === "Completed" || res.data.copy.status === "Error") && reload) {
             clearInterval(reload);
         }
-
-        return () => {
-            if(reload) clearInterval(reload);
-        };
     };
 
     return (
