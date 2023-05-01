@@ -19,8 +19,14 @@ import SpotifyAuthCallback from "./app/dashboard/swap/authScreens/callbacks/Spot
 import AppleMusicAuthScreen from "./app/dashboard/swap/authScreens/AppleMusicAuthScreen";
 import PrivacyScreen from "./app/policy/PrivacyScreen";
 import TermsScreen from "./app/policy/TermsScreen";
+import SyncsScreen from "./app/dashboard/sync/SyncsScreen";
+import SyncStepOne from "./app/dashboard/sync/SyncStepOne";
+import SharesScreen from "./app/dashboard/share/SharesScreen";
+import NewShareScreen from "./app/dashboard/share/NewShareScreen";
+import ShareScreen from "./app/dashboard/share/ShareScreen";
+import CopyScreen from "./app/dashboard/share/CopyScreen";
 
-function App() {
+const App = () => {
     return (
         <Routes>
             <Route path="/" element={<HomeScreen/>}/>
@@ -43,6 +49,16 @@ function App() {
 
             <Route path={"/app/swap/:swapId"} element={<SwapStatusScreen />}/>
 
+            <Route path={"/app/sync"} element={<SyncsScreen />}/>
+
+            <Route path={"/app/sync/new"} element={<SyncStepOne />}/>
+            <Route path={"/app/sync/new/step-one"} element={<SyncStepOne />}/>
+
+            <Route path={"/app/share"} element={<SharesScreen />}/>
+            <Route path={"/app/share/new"} element={<NewShareScreen />}/>
+            <Route path={"/app/share/copy/:copyId"} element={<CopyScreen />}/>
+            <Route path={"/share/:shareId"} element={<ShareScreen />}/>
+
             <Route path={"/app/user/auth/spotify"} element={<SpotifyAuthScreen />}/>
             <Route path={"/callbacks/spotify"} element={<SpotifyAuthCallback />}/>
 
@@ -51,6 +67,6 @@ function App() {
             <Route path={"/app/user/settings"} element={<UserSettingsScreen/>}/>
         </Routes>
     );
-}
+};
 
 export default App;
