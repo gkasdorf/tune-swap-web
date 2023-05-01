@@ -32,7 +32,7 @@ const NavBarComponent = () => {
                                 <div className={"hidden md:flex pl-4"}>
                                     <Link to={"/app"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Dashboard</Link>
                                     <Link to={"/app/swap"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Swap</Link>
-                                    <Link to={"/app/sync"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Sync</Link>
+                                    {/*<Link to={"/app/sync"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Sync</Link>*/}
                                     <Link to={"/app/share"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Share</Link>
                                     <Link to={"/app/discover"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Discover</Link>
                                 </div>
@@ -80,7 +80,7 @@ const NavBarComponent = () => {
                             <nav className={"flex items-center justify-center"}>
                                 <Link to={"/app"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Dashboard</Link>
                                 <Link to={"/app/swap"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Swap</Link>
-                                <Link to={"/app/sync"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Sync</Link>
+                                {/*<Link to={"/app/sync"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Sync</Link>*/}
                                 <Link to={"/app/share"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Share</Link>
                                 <Link to={"/app/discover"} className={"text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-md font-medium"}>Discover</Link>
                             </nav>
