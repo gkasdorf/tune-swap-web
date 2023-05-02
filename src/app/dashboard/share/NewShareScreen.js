@@ -9,11 +9,15 @@ import MusicServiceIcon from "../../../models/MusicServiceIcon";
 import ShareApi from "../../../api/share/ShareApi";
 import {useNavigate} from "react-router-dom";
 import Spinner from "../../ui/spinner/Spinner";
+import HasApi from "../../../api/user/HasApi";
+import {showAuth} from "../../../helpers/showAuth";
+import TidalModal from "../swap/authScreens/TidalModal";
 
 const NewShareScreen = () => {
     const [playlists, setPlaylists] = useState(null);
     const [service, setService] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [tidalModalVisible, setTidalModalVisible] = useState(false);
 
     const navigate = useNavigate();
 
@@ -33,6 +37,13 @@ const NewShareScreen = () => {
     };
 
     const onPlaylistClick = async (id) => {
+        const has = await HasApi.check(service);
+
+        if(!has) {
+            showAuth(service, setTidalModalVisible);
+            return;
+        }
+
         setLoading(true);
 
         const res = await ShareApi.create(service, id);
@@ -94,6 +105,7 @@ const NewShareScreen = () => {
                         </Dialog>
                     </div>
                 </div>
+                <TidalModal setVisible={setTidalModalVisible} visible={tidalModalVisible} />
             </MainWrapper>
         </ProtectedRoute>
     );
