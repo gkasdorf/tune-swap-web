@@ -9,11 +9,15 @@ import Spinner from "../../ui/spinner/Spinner";
 import SwapServiceButton from "../swap/SwapServiceButton";
 import Headers from "../../ui/typography/Headers";
 import Button from "../../ui/button/Button";
+import HasApi from "../../../api/user/HasApi";
+import {showAuth} from "../../../helpers/showAuth";
+import TidalModal from "../swap/authScreens/TidalModal";
 
 const ShareScreen = () => {
     const [share, setShare] = useState(null);
     const [error, setError] = useState(null);
     const [isOwner, setIsOwner] = useState(false);
+    const [tidalModalVisible, setTidalModalVisible] = useState(false);
 
     const {shareId} = useParams();
 
@@ -50,6 +54,13 @@ const ShareScreen = () => {
     };
 
     const onServiceClick = async (service) => {
+        const has = await HasApi.check(service);
+
+        if(!has) {
+            showAuth(service, setTidalModalVisible);
+            return;
+        }
+
         const res = await ShareApi.startCopy(shareId, service);
 
         if(!res.success) {
@@ -151,6 +162,7 @@ const ShareScreen = () => {
                         </Dialog>
                     </div>
                 </div>
+                <TidalModal setVisible={setTidalModalVisible} visible={tidalModalVisible} />
             </MainWrapper>
         </UnprotectedRoute>
     );
