@@ -22,6 +22,13 @@ const NewShareScreen = () => {
     const navigate = useNavigate();
 
     const loadPlaylists = async(service) => {
+        const has = await HasApi.check(service);
+
+        if(!has) {
+            showAuth(service, setTidalModalVisible);
+            return;
+        }
+
         setPlaylists([]);
         setService(service);
         setLoading(true);
@@ -37,13 +44,6 @@ const NewShareScreen = () => {
     };
 
     const onPlaylistClick = async (id) => {
-        const has = await HasApi.check(service);
-
-        if(!has) {
-            showAuth(service, setTidalModalVisible);
-            return;
-        }
-
         setLoading(true);
 
         const res = await ShareApi.create(service, id);
