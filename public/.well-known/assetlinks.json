@@ -5,7 +5,8 @@
       "namespace": "android_app",
       "package_name": "com.gkasdorf.tuneswap",
       "sha256_cert_fingerprints": [
-        "20:EB:8D:7F:1E:95:25:D0:CE:B1:74:42:A8:38:97:00:7C:21:AE:6A:C8:96:E2:CD:46:22:35:B3:40:E5:F7:EA"
+        "20:EB:8D:7F:1E:95:25:D0:CE:B1:74:42:A8:38:97:00:7C:21:AE:6A:C8:96:E2:CD:46:22:35:B3:40:E5:F7:EA",
+        "D3:86:0D:89:84:EE:B9:B5:6C:12:FE:F9:AB:D1:7A:B1:F4:1E:47:53:EE:37:22:4B:F1:2D:61:4E:D2:97:9D:A0"
       ]
     }
   }
