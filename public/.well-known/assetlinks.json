@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.gkasdorf.tuneswap",
+      "sha256_cert_fingerprints": [
+        "20:EB:8D:7F:1E:95:25:D0:CE:B1:74:42:A8:38:97:00:7C:21:AE:6A:C8:96:E2:CD:46:22:35:B3:40:E5:F7:EA"
+      ]
+    }
+  }
+]

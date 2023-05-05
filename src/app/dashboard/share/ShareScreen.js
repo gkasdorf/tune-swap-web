@@ -12,6 +12,7 @@ import Button from "../../ui/button/Button";
 import HasApi from "../../../api/user/HasApi";
 import {showAuth} from "../../../helpers/showAuth";
 import TidalModal from "../swap/authScreens/TidalModal";
+import MobileDetect from "mobile-detect";
 
 const ShareScreen = () => {
     const [share, setShare] = useState(null);
@@ -26,6 +27,12 @@ const ShareScreen = () => {
     let reload = null;
 
     useEffect(() => {
+        const md = new MobileDetect(window.navigator.userAgent);
+
+        if(md.phone()) {
+            window.location.replace(`tuneswap://share/${shareId}`);
+        }
+
         loadShare();
 
         return () => {
