@@ -9,7 +9,7 @@ export const signup = createAsyncThunk(
         const res = await SignupApi.register(data);
 
         if(res.status === 200) {
-            localStorage.setItem("token", res.data.api_token);
+            localStorage.setItem("token", res.data.data.api_token);
 
             thunkAPI.dispatch(setUser(res.data));
 
@@ -23,13 +23,9 @@ export const signup = createAsyncThunk(
 export const login = createAsyncThunk(
     "auth/login",
     async (data, thunkAPI) => {
-        console.log("here");
         const res = await LoginApi.login(data.email, data.password);
 
-        console.log(res);
-
         if(res.status === 200) {
-
             localStorage.setItem("token", res.data.data.api_token);
 
             thunkAPI.dispatch(setUser(res.data));
