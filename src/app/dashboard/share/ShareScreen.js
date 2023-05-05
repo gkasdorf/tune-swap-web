@@ -75,8 +75,6 @@ const ShareScreen = () => {
             return;
         }
 
-        console.log(res);
-
         navigate(`/app/share/copy/${res.data.copy.id}`);
     };
 

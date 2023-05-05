@@ -13,6 +13,7 @@ const configure = () => {
 
 configure();
 
+// eslint-disable-next-line no-unused-vars
 const onButtonClick = () => {
     const button = document.getElementById("apple-music-authorize");
     button.classList.add("disabled");
@@ -23,9 +24,6 @@ const onButtonClick = () => {
     let music = MusicKit.getInstance();
 
     music.authorize().then((token) => {
-        console.log("authorized");
-        console.log("token is: " + token);
-
         window.location.href = "https://api.tuneswap.app/api/applemusic/auth" + "?apiToken=" + encodeURIComponent(apiToken) + "&token=" + encodeURIComponent(token) + "&web=true";
     });
 };

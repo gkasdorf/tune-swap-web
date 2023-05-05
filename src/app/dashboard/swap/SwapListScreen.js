@@ -20,8 +20,6 @@ const SwapListScreen = () => {
     const loadSwaps = async (offset) => {
         const swapsRes = await SwapApi.getAll(10, offset);
 
-        console.log(swapsRes.data.total);
-
         setSwaps(swapsRes.data.swaps);
         setTotalSwaps(swapsRes.data.total);
     };

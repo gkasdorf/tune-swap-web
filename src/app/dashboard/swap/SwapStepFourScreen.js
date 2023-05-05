@@ -36,7 +36,6 @@ const SwapStepFourScreen = () => {
         }
 
         if(success) {
-            console.log(swapId);
             navigate(`/app/swap/${swapId}`);
         }
     }, [error, success]);

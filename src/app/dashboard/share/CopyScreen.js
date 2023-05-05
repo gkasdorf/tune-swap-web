@@ -35,8 +35,6 @@ const CopyScreen = () => {
             return;
         }
 
-        console.log(res);
-
         setCopy(res.data.copy);
 
         if(res.data.copy.status !== "Completed" && res.data.copy.status !== "Error" && !reload) {

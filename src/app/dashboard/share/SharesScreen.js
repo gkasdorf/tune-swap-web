@@ -20,8 +20,6 @@ const SharesScreen = () => {
     const loadShares = async () => {
         const res = await ShareApi.getAll();
 
-        console.log(res.data);
-
         setShares(res.data.shares);
         setSharesLoading(false);
     };
