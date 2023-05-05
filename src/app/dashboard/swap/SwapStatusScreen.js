@@ -33,7 +33,8 @@ const SwapStatusScreen = () => {
         const swapRes = await SwapApi.get(swapId);
         const swap = swapRes.data.swap;
 
-        const percentage = Math.round(((swap.songs_found + swap.songs_not_found) / swap.total_songs) * 100);
+        let percentage = Math.round(((swap.songs_found + swap.songs_not_found) / swap.total_songs) * 100);
+        if(isNaN(percentage)) percentage = 0;
 
         setSwap(swap);
         setSwapPercentage(percentage);
