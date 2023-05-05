@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import UnprotectedRoute from "../../wrappers/UnprotectedRoute";
 import MainWrapper from "../../wrappers/MainWrapper";
 import Dialog from "../../ui/dialog/Dialog";
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import ShareApi from "../../../api/share/ShareApi";
 import Alert from "../../ui/alert/Alert";
 import Spinner from "../../ui/spinner/Spinner";
@@ -13,6 +13,7 @@ import HasApi from "../../../api/user/HasApi";
 import {showAuth} from "../../../helpers/showAuth";
 import TidalModal from "../swap/authScreens/TidalModal";
 import MobileDetect from "mobile-detect";
+import {useSelector} from "react-redux";
 
 const ShareScreen = () => {
     const [share, setShare] = useState(null);
@@ -21,6 +22,7 @@ const ShareScreen = () => {
     const [tidalModalVisible, setTidalModalVisible] = useState(false);
 
     const {shareId} = useParams();
+    const {isAuthed: userAuthed} = useSelector(state => state.user);
 
     const navigate = useNavigate();
 
@@ -143,14 +145,31 @@ const ShareScreen = () => {
                                                             </h3>
                                                         </div>
                                                     </div>
-                                                    <div className={"mt-8 text-center"}>
-                                                        <h3 className="text-2xl">What service do you want to add the playlist to?</h3>
-                                                    </div>
-                                                    <div className={"flex flex-wrap"}>
-                                                        <SwapServiceButton service={"Spotify"} onClick={() => onServiceClick("Spotify")}/>
-                                                        <SwapServiceButton service={"Tidal"} onClick={() => onServiceClick("Tidal")}/>
-                                                        <SwapServiceButton service={"Apple Music"} onClick={() => onServiceClick("Apple Music")}/>
-                                                    </div>
+                                                    <hr className={"m-8"}/>
+                                                    {
+                                                        userAuthed ? (
+                                                            <>
+                                                                <div className={"mt-8 text-center"}>
+                                                                    <h3 className="text-2xl">What service do you want to add the playlist to?</h3>
+                                                                </div>
+                                                                <div className={"flex flex-wrap"}>
+                                                                    <SwapServiceButton service={"Spotify"} onClick={() => onServiceClick("Spotify")}/>
+                                                                    <SwapServiceButton service={"Tidal"} onClick={() => onServiceClick("Tidal")}/>
+                                                                    <SwapServiceButton service={"Apple Music"} onClick={() => onServiceClick("Apple Music")}/>
+                                                                </div>
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <div className={"mt-8 text-center"}>
+                                                                    <h3 className="text-2xl">Sign in to copy this playlist</h3>
+                                                                </div>
+                                                                <div className={"text-center mt-4"}>
+                                                                    <Link to={"/signup"} className={"mr-1"}><Button>Sign Up</Button></Link>
+                                                                    <Link to={"/login"} className={"ml-1"}><Button>Sign In</Button></Link>
+                                                                </div>
+                                                            </>
+                                                        )
+                                                    }
                                                 </>
                                             ) : (
                                                 <div className={"text-center"}>
